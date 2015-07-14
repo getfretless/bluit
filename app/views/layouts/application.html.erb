@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-xs-12">
       <header>
-        <div class="well">header</div>
+        <div class="well"><%= link_to 'Bluit', root_path %></div>
       </header>
     </div>
   </div>
@@ -28,7 +28,9 @@
       </div>
       <div class="col-xs-4">
         <nav id="sidebar">
-          <div class="well">sidebar</div>
+          <div class="well">
+            <%= link_to 'Submit a new link', new_post_path %>
+          </div>
         </nav>
       </div>
     </div>
