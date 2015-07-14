@@ -19,7 +19,7 @@
         <main>
           <% flash.each do |name, msg| %>
             <% if msg.is_a? Array %>
-              <%= content_tag :div, msg, class: name do %>
+              <%= content_tag :div, msg, class: "alert #{name}" do %>
                 <ul>
                   <% msg.each do |message| %>
                     <li><%= message %></li>
@@ -27,7 +27,7 @@
                 </ul>
               <% end %>
             <% else %>
-              <%= content_tag :div, msg, class: name %>
+              <%= content_tag :div, msg, class: "alert #{name}" %>
             <% end %>
           <% end %>
           <!-- BEGIN main content -->
