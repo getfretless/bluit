@@ -6,8 +6,8 @@
     <div class="title">
       <a href="<%= post.link %>" target="_blank"><%= post.title %></a>
     </div>
-    <div class="tagline">
-      submitted at <%= post.created_at %>
+    <div class="tagline" title="<%= post.created_at %>">
+      submitted <%= time_ago_in_words post.created_at %> ago
     </div>
   </li>
 <% end %>
