@@ -5,15 +5,20 @@
     <%= f.text_field :title %>
   </fieldset>
 
-  <fieldset>
-    <%= f.label :link %>
-    <%= f.text_field :link %>
-  </fieldset>
+  <% if f.object.link? %>
+    <fieldset>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+    </fieldset>
+  <% end %>
 
-  <fieldset>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </fieldset>
+  <% if f.object.text? %>
+    <fieldset>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </fieldset>
+  <% end %>
 
+  <%= f.hidden_field :post_type %>
   <%= f.submit %>
 <% end %>
