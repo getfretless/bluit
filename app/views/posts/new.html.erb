@@ -1,6 +1,7 @@
 <%= form_for @post do |f| %>
   <fieldset>
     <%= f.label :title %>
+    <%= f.object.errors[:title] if f.object.errors[:title].present? %>
     <%= f.text_field :title %>
   </fieldset>
 

@@ -8,11 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(params.require(:post).permit(:title, :link, :body))
-    if post.save
+    @post = Post.new(params.require(:post).permit(:title, :link, :body))
+    if @post.save
       redirect_to posts_path
     else
-      redirect_to new_post_path
+      flash.now[:error] = @post.errors.full_messages
+      render :new
     end
   end
 end
