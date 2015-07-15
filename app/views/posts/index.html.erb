@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
   <li>
     <div class="title">
-      <a href="<%= post.link %>" target="_blank"><%= post.title %></a>
+      <%= link_to post.title, post_link(post) %>
     </div>
     <div class="tagline" title="<%= post.created_at %>">
       submitted <%= time_ago_in_words post.created_at %> ago

@@ -1,0 +1,7 @@
+<article class="post">
+  <div class="title"><a href="<%= @post.link %>"><%= @post.title %></a></div>
+  <div class="tagline" title="<%= @post.created_at %>">submitted <%= time_ago_in_words @post.created_at %> ago</div>
+  <% if @post.text? -%>
+    <section class="body"><%= @post.body %></section>
+  <% end -%>
+</article>
