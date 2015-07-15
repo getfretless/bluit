@@ -28,6 +28,9 @@
           <%= link_to 'Submit a new link', new_post_path %>
           <%= link_to 'Submit a new text post', new_post_path(post_type: :text) %>
           <%= link_to 'Create a new category', new_category_path %>
+          <div>
+            <%= yield :sidebar %>
+          </div>
         </nav>
       </div>
     </div>

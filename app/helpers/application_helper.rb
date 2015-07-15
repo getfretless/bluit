@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def sidebar(sidebar_content)
+    content_for(:sidebar) do
+      sidebar_content
+    end
+  end
+
   def post_link(post)
     return post.link if post.link?
     return post_path(post) if post.text?
