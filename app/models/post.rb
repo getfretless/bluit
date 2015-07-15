@@ -8,4 +8,5 @@ class Post < ActiveRecord::Base
 
   belongs_to :category
   default_scope { order(updated_at: :desc).includes(:category) }
+  self.per_page = 2
 end
