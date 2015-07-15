@@ -1,0 +1,24 @@
+<%= form_for @post do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.object.errors[:title] if f.object.errors[:title].present? %>
+    <%= f.text_field :title %>
+  </fieldset>
+
+  <% if f.object.link? %>
+    <fieldset>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+    </fieldset>
+  <% end %>
+
+  <% if f.object.text? %>
+    <fieldset>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </fieldset>
+  <% end %>
+
+  <%= f.hidden_field :post_type %>
+  <%= f.submit class: 'btn btn-default' %>
+<% end %>

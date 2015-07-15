@@ -154,3 +154,23 @@ article {
     font-size: small;
   }
 }
+
+ul.posts, article {
+  ul.actions {
+    padding: 1px 0;
+    list-style-type: none;
+    li {
+      display: inline-block;
+      padding-right: 4px;
+      font-size: x-small;
+      line-height: 1.6em;
+      white-space: nowrap;
+      a {
+        color: #888;
+        font-weight: bold;
+        padding: 0 1px;
+        text-decoration: none;
+      }
+    }
+  }
+}

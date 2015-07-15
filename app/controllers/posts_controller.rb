@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]
+    find_post
   end
 
   def new
@@ -13,12 +13,36 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :link, :body, :post_type))
+    @post = Post.new post_params
     if @post.save
       redirect_to posts_path, flash: { :'alert-success' => 'Thanks for submitting your post!' }
     else
       flash.now[:'alert-danger'] = @post.errors.full_messages
       render :new
     end
+  end
+
+  def edit
+    find_post
+  end
+
+  def update
+    find_post
+    if @post.update post_params
+      redirect_to posts_path, flash: { :'alert-success' => 'Your post has been updated.' }
+    else
+      flash.now[:'alert-danger'] = @post.errors.full_messages
+      render :edit
+    end
+  end
+
+  private
+
+  def find_post
+    @post = Post.find params[:id]
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :link, :body, :post_type)
   end
 end
