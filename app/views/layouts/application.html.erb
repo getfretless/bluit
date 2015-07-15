@@ -10,6 +10,30 @@
 <div class="container wrap">
   <div class="row">
     <div class="col-xs-12">
+      <nav id="categories">
+        <div class="dropdown">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+           <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <% Category.all.find_each do |c| -%>
+              <li role="presentation"><%= link_to c.name, category_path(c), role: 'menuitem', tabindex: '-1' %></li>
+            <% end -%>
+          </ul>
+        </div>
+        <span class="separator">|</span>
+        <ul class="category-links">
+          <% Category.all.each_with_index do |c, i| %>
+            <li>
+              <% if i > 0 %>
+                <span class="separator">-</span>
+              <% end %>
+              <%= link_to c.name, category_path(c) %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
       <header><%= link_to 'Bluit', root_path %></header>
     </div>
   </div>

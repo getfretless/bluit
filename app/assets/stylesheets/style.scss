@@ -185,3 +185,46 @@ ul.posts, article {
     margin-bottom: 0.5em;
   }
 }
+
+nav#categories {
+  background-color: #f0f0f0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-bottom: 1px solid gray;
+  font-size: 10px;
+  height: 18px;
+  line-height: 18px;
+  margin-bottom: 0;
+
+  ul.category-links {
+    position: absolute;
+    display: inline;
+    right: 0;
+    left: 95px;
+    overflow: hidden;
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline;
+    }
+  }
+  .separator {
+    color: gray;
+    margin: 0px .7ex 0px .7ex;
+  }
+  .dropdown {
+    float: left;
+    padding-left: 5px;
+    button {
+      text-transform: uppercase;
+      border: 0;
+      background-color: inherit;
+      padding: 0;
+    }
+    .dropdown-menu {
+      font-size: 10px;
+    }
+  }
+}
