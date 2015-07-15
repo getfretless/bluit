@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
 
   def show
-    find_post
   end
 
   def new
@@ -23,16 +24,22 @@ class PostsController < ApplicationController
   end
 
   def edit
-    find_post
   end
 
   def update
-    find_post
     if @post.update post_params
       redirect_to posts_path, flash: { :'alert-success' => 'Your post has been updated.' }
     else
       flash.now[:'alert-danger'] = @post.errors.full_messages
       render :edit
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to posts_path, flash: { :'alert-success' => 'Your post has been removed.' }
+    else
+      redirect_to posts_path, flash: { :'alert-danger' => 'We were unable to remove that post. Perhaps someone already removed it.' }
     end
   end
 

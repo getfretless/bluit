@@ -1,12 +1,9 @@
 <article class="post">
-  <div class="title"><a href="<%= @post.link %>"><%= @post.title %></a></div>
-  <div class="tagline" title="<%= @post.created_at %>">submitted <%= time_ago_in_words @post.created_at %> ago</div>
+  <%= render 'slug', post: @post %>
 
   <% if @post.text? -%>
     <section class="body"><%= @post.body %></section>
   <% end -%>
 
-  <ul class="actions">
-    <li><%= link_to 'edit', edit_post_path(@post) %></li>
-  </ul>
+  <%= render 'actions', post: @post %>
 </article>

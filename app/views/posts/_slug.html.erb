@@ -1,0 +1,6 @@
+<div class="title">
+  <%= link_to post.title, post_link(post) %>
+</div>
+<div class="tagline" title="<%= post.created_at %>">
+  submitted <%= time_ago_in_words post.created_at %> ago
+</div>
