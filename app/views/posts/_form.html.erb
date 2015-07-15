@@ -7,7 +7,7 @@
 
   <fieldset>
     <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: 'Pick a category, fool.' %>
+    <%= f.collection_select :category_id, categories, :id, :name, prompt: 'Pick a category, fool.' %>
   </fieldset>
 
   <% if f.object.link? %>
