@@ -17,19 +17,7 @@
     <div class="row">
       <div class="col-xs-8">
         <main>
-          <% flash.each do |name, msg| %>
-            <% if msg.is_a? Array %>
-              <%= content_tag :div, msg, class: "alert #{name}" do %>
-                <ul>
-                  <% msg.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              <% end %>
-            <% else %>
-              <%= content_tag :div, msg, class: "alert #{name}" %>
-            <% end %>
-          <% end %>
+          <%= flash_messages(flash) unless flash.empty? %>
           <!-- BEGIN main content -->
           <%= yield %>
           <!-- END main content -->
