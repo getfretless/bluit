@@ -7,4 +7,5 @@ class Post < ActiveRecord::Base
   validates :category_id, presence: true
 
   belongs_to :category
+  default_scope { order(updated_at: :desc).includes(:category) }
 end

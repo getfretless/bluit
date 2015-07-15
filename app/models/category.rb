@@ -6,4 +6,5 @@ class Category < ActiveRecord::Base
   validates :submission_text, length: { maximum: 1024 }
 
   has_many :posts
+  default_scope { order('lower(name)') }
 end

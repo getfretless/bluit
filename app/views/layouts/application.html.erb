@@ -17,7 +17,7 @@
            <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <% categories.find_each do |c| -%>
+            <% categories.each do |c| -%>
               <li role="presentation"><%= link_to c.name, category_path(c), role: 'menuitem', tabindex: '-1' %></li>
             <% end -%>
           </ul>
