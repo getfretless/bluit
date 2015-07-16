@@ -36,10 +36,16 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_commentable_with_threading (2.0.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      awesome_nested_set (>= 3.0)
     arel (6.0.2)
     autoprefixer-rails (5.2.0.1)
       execjs
       json
+    awesome_nested_set (3.0.2)
+      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -163,6 +169,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable_with_threading
   better_errors
   bootstrap-sass
   coffee-rails (~> 4.1.0)
