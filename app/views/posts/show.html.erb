@@ -11,24 +11,18 @@
     <%= render 'comments/form', comment: @comment %>
   <% end %>
 
-  <ol id="comments">
-    <% @post.comment_threads.each do |comment| -%>
-      <li>
-        <div class="tagline" title="<%= comment.created_at %>">
-          <%= comment.user.username %>
-          <%= time_ago_in_words comment.created_at %> ago
-        </div>
-        <section class="comment-body">
-          <%= comment.body %>
-        </section>
-
-        <div id="reply-form-<%= comment.id %>" style="display: none">
-        </div>
-
-        <ul class="actions">
-          <li><%= link_to 'reply', new_comment_path(parent_id: comment.id, format: 'js'), remote: true %></li>
-        </ul>
-      </li>
-    <% end -%>
-  </ol>
+  <%= nested_ol @post.comment_threads, id: 'comments' do |comment| %>
+    <div class="tagline" title="<%= comment.created_at %>">
+      <%= comment.user.username %>
+      <%= time_ago_in_words comment.created_at %> ago
+    </div>
+    <section class="body">
+      <%= comment.body %>
+    </section>
+    <ul class="actions">
+      <li><%= link_to 'reply', new_comment_path(parent_id: comment.id, format: 'js'), remote: true, method: :get %></li>
+    </ul>
+    <div id="reply-form-<%= comment.id %>" style="display: none">
+    </div>
+ <% end -%>
 </article>
