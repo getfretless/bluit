@@ -1,0 +1,9 @@
+<%= form_for comment, html: { class: 'comment' } do |f| %>
+  <fieldset>
+    <%= f.label :body, 'Add a comment' %><br />
+    <%= f.text_area :body %>
+  </fieldset>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.submit class: 'btn btn-default' %>
+<% end %>

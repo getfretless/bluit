@@ -27,6 +27,6 @@ class CategoriesController < ApplicationController
   end
 
   def find_category
-    @category = Category.find params[:id]
+    @category = Category.includes(posts: [:comment_threads]).find(params[:id])
   end
 end
