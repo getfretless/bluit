@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :categories
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  protected
+
   def categories
     @categories = Category.all if !defined?(@categories)
     @categories
