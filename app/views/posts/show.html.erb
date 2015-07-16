@@ -21,6 +21,13 @@
         <section class="comment-body">
           <%= comment.body %>
         </section>
+
+        <div id="reply-form-<%= comment.id %>" style="display: none">
+        </div>
+
+        <ul class="actions">
+          <li><%= link_to 'reply', new_comment_path(parent_id: comment.id, format: 'js'), remote: true %></li>
+        </ul>
       </li>
     <% end -%>
   </ol>

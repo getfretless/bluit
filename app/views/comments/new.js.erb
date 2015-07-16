@@ -1,0 +1,3 @@
+$("#<%= "reply-form-#{@parent.id}" %>").html("<%= escape_javascript(render 'form', comment: @comment, parent_id: @parent.id) %>");
+$("#<%= "reply-form-#{@parent.id}" %>").slideDown(350);
+$("#<%= "reply-form-#{@parent.id}" %> textarea").focus()
