@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.build_from(@post, current_user.id, '') if user_signed_in?
   end
 
   def new

@@ -129,6 +129,13 @@ main form {
   }
 }
 
+div.field_with_errors {
+  display: inline;
+  label {
+    color: red;
+  }
+}
+
 article {
   .title {
     font-size: 16px;
@@ -297,4 +304,40 @@ nav#categories {
   line-height: 12px;
   border-top-left-radius: 7px;
   font-size: x-small;
+}
+
+form.comment {
+  fieldset {
+    background-color: transparent;
+    label {
+      font-size: small;
+    }
+  }
+}
+
+#comments {
+  padding-left: 20px;
+  border-left: 1px dotted gray;
+  li {
+    list-style: none;
+    margin-bottom: 15px;
+    section.body {
+      border: none;
+      background-color: transparent;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+    }
+    .actions, .actions li {
+      line-height: 12px;
+      height: 12px;
+      padding: 0;
+    }
+  }
+  ol {
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 1px dotted gray;
+  }
 }
