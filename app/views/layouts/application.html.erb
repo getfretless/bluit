@@ -34,7 +34,19 @@
           <% end %>
         </ul>
       </nav>
-      <header><%= link_to 'Bluit', root_path %></header>
+      <header>
+        <%= link_to 'Bluit', root_path %>
+        <div id="session_actions">
+          <% if user_signed_in? %>
+            <%= link_to current_user.username, edit_user_registration_path(current_user) %>
+            <span class="separator">|</span>
+            <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+          <% else %>
+            want to join? <%= link_to 'login', new_user_session_path %>
+            or <%= link_to 'register', new_user_registration_path %>
+          <% end %>
+        </div>
+      </header>
     </div>
   </div>
   <div class="container">
