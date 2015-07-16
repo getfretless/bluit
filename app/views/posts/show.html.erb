@@ -18,4 +18,18 @@
       <%= f.submit class: 'btn btn-default' %>
     <% end %>
   <% end %>
+
+  <ol id="comments">
+    <% @post.comment_threads.each do |comment| -%>
+      <li>
+        <div class="tagline" title="<%= comment.created_at %>">
+          <%= comment.user.username %>
+          <%= time_ago_in_words comment.created_at %> ago
+        </div>
+        <section class="comment-body">
+          <%= comment.body %>
+        </section>
+      </li>
+    <% end -%>
+  </ol>
 </article>
