@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   validates :category_id, presence: true
 
   belongs_to :category
-  default_scope { order(updated_at: :desc).includes(:category) }
+  belongs_to :user
+  default_scope { order(updated_at: :desc).includes(:category).includes(:user) }
   self.per_page = 2
 end
