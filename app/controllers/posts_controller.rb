@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :save]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -44,6 +44,13 @@ class PostsController < ApplicationController
     else
       redirect_to posts_path, flash: { :'alert-danger' => 'We were unable to remove that post. Perhaps someone already removed it.' }
     end
+  end
+
+  def save
+    Nevernote.create_from @post
+    redirect_to @post, :'alert-success' => 'Saved to Nevernote!'
+  rescue
+    redirect_to @post, :'alert-danger' => 'We were unable to save that to Nevernote'
   end
 
   private

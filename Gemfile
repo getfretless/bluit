@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate'
 gem 'devise'
 gem 'acts_as_commentable_with_threading'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'
