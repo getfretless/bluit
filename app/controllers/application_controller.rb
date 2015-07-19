@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :username
-    devise_parameter_sanitizer.for(:account_update) << :username
+    devise_parameter_sanitizer.for(:sign_up) << [:username, :nevernote_api_key]
+    devise_parameter_sanitizer.for(:account_update) << [:username, :nevernote_api_key]
   end
 end
