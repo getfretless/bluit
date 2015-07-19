@@ -47,10 +47,10 @@ class PostsController < ApplicationController
   end
 
   def save
-    Nevernote.create_from @post
-    redirect_to @post, :'alert-success' => 'Saved to Nevernote!'
+    Nevernote.create_from @post, current_user.nevernote_api_key
+    redirect_to @post, flash: { :'alert-success' => 'Saved to Nevernote!' }
   rescue
-    redirect_to @post, :'alert-danger' => 'We were unable to save that to Nevernote'
+    redirect_to @post, flash: { :'alert-danger' => 'We were unable to save that to Nevernote' }
   end
 
   private

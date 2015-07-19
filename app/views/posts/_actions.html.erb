@@ -2,7 +2,9 @@
   <li><%= link_to "#{post.comment_threads.length} #{'comment'.pluralize(post.comment_threads.length)}", post_path(post, anchor: 'comments') %></li>
   <li><%= link_to 'edit', edit_post_path(post) %></li>
   <li><%= link_to 'delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% if current_user.nevernote_api_key.present? %>
   <li>
     <%= link_to 'save', save_post_path(post), method: :post %>
   </li>
+  <% end %>
 </ul>
